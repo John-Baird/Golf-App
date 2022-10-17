@@ -1,3 +1,43 @@
 body {
     height: 100%
 }
+.pro{
+    color: white;
+    background-color: #1b1915;
+}
+.women{
+    color: black;
+    background-color: #ff9af2;
+}
+.men{
+    color: white;
+    background-color: #100c46;
+}
+.champion{
+    color: white;
+    background-color: #c50000;
+}
+.auto{
+    color: black;
+    background-color: white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+th{
+    width: 3rem;
+    border-width: 2px;
+    border-color: black;
+    
+}
+td{
+    width: 1rem;
+    border-width: 2px;
+    border-color: black;
+    
+    
+}
+

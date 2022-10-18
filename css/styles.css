@@ -40,4 +40,15 @@ td {
 .space {
   height: 4rem; }
 
+.bruh {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #1b1915;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px; }
+
 /*# sourceMappingURL=styles.css.map */

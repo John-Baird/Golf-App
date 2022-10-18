@@ -1,3 +1,6 @@
+let overlay = true;
+
+
 let player1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 let player2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 let player3 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -180,7 +183,7 @@ document.getElementById('hcp').innerHTML += `<th scope="row">${addArray(hcp)}</t
 for (let i = 1; i <= 18; i++) {
     document.getElementById('player1').innerHTML += `<td class='change' value="${i}">${player1[(i-1)]}</td>`
     if(i==9){
-        document.getElementById('player1').innerHTML += `<th id='array11'></th>`
+        document.getElementById('player1').innerHTML += `<th id='array11'>0</th>`
     }
 }
 document.getElementById('player1').innerHTML += `<th id='array1' scope="row">${addArray(player1)}</th>`
@@ -188,7 +191,7 @@ document.getElementById('player1').innerHTML += `<th id='array1' scope="row">${a
 for (let i = 1; i <= 18; i++) {
     document.getElementById('player2').innerHTML += `<td class='change' value="${i}">${player2[(i-1)]}</td>`
     if(i==9){
-        document.getElementById('player2').innerHTML += `<th id='array22'></th>`
+        document.getElementById('player2').innerHTML += `<th id='array22'>0</th>`
     }
 }
 document.getElementById('player2').innerHTML += `<th id='array2' scope="row">${addArray(player2)}</th>`
@@ -196,7 +199,7 @@ document.getElementById('player2').innerHTML += `<th id='array2' scope="row">${a
 for (let i = 1; i <= 18; i++) {
     document.getElementById('player3').innerHTML += `<td class='change' value="${i}">${player3[(i-1)]}</td>`
     if(i==9){
-        document.getElementById('player3').innerHTML += `<th id='array33'></th>`
+        document.getElementById('player3').innerHTML += `<th id='array33'>0</th>`
     }
 }
 document.getElementById('player3').innerHTML += `<th id='array3' scope="row">${addArray(player3)}</th>`
@@ -204,7 +207,7 @@ document.getElementById('player3').innerHTML += `<th id='array3' scope="row">${a
 for (let i = 1; i <= 18; i++) {
     document.getElementById('player4').innerHTML += `<td class='change' value="${i}">${player4[(i-1)]}</td>`
     if(i==9){
-        document.getElementById('player4').innerHTML += `<th id='array44'></th>`
+        document.getElementById('player4').innerHTML += `<th id='array44'>0</th>`
     }
 }
 document.getElementById('player4').innerHTML += `<th id='array4' scope="row">${addArray(player4 )}</th>`
@@ -222,10 +225,11 @@ document.querySelectorAll('td.change').forEach((td) => {
       }
     };
   });
+  
 }
 
 function setArray(){
-
+    
     for (let i = 0; i < 19; i++) {
         if(i==9){
             i=10
@@ -254,7 +258,7 @@ function setArray(){
     document.getElementById('array22').innerText = addArray(b2)
     document.getElementById('array33').innerText = addArray(c3)
     document.getElementById('array44').innerText = addArray(d4)
-
+    
 
 }
 
@@ -277,4 +281,13 @@ function addArray(array){
         return accumulator + value;
       }, 0);
     return sum
+}
+
+
+
+
+overlay = false;
+function load(){
+document.getElementById('bruh').classList = ''
+document.getElementById('bruh').innerHTML = ''
 }

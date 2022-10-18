@@ -31,8 +31,11 @@ th {
   border-color: black; }
 
 td {
-  width: 1rem;
+  width: 2rem;
   border-width: 2px;
   border-color: black; }
+
+.space {
+  height: 4rem; }
 
 /*# sourceMappingURL=styles.css.map */

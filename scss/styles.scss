@@ -15,7 +15,9 @@ body {
 }
 .champion{
     color: white;
+    
     background-color: #c50000;
+    
 }
 .auto{
     color: black;
@@ -34,10 +36,12 @@ th{
     
 }
 td{
-    width: 1rem;
+    width: 2rem;
     border-width: 2px;
     border-color: black;
     
     
 }
-
+.space{
+    height: 4rem;
+}

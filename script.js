@@ -125,6 +125,10 @@ function Table(){
     document.getElementById('yards').innerHTML = `<th scope="row">Yards</th>`
     document.getElementById('par').innerHTML = `<th scope="row">Par</th>`
     document.getElementById('hcp').innerHTML = `<th scope="row">Handicap</th>`
+    document.getElementById('player1').innerHTML = ` <th scope="row">Player 1</th>`
+    document.getElementById('player2').innerHTML = ` <th scope="row">Player 2</th>`
+    document.getElementById('player3').innerHTML = ` <th scope="row">Player 3</th>`
+    document.getElementById('player4').innerHTML = ` <th scope="row">Player 4</th>`
 
     //Holes
 for (let i = 1; i <= 18; i++) {
@@ -149,6 +153,108 @@ for (let i = 0; i < 18; i++) {
     document.getElementById('hcp').innerHTML += `<td>${hcp[i]}</td>`
 }
 document.getElementById('hcp').innerHTML += `<th scope="row">${addArray(hcp)}</th>`
+
+    //Players
+for (let i = 1; i <= 18; i++) {
+    document.getElementById('player1').innerHTML += `<td><ol class="number-swiper-column" value="0">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+    <li>19</li>
+    <li>20</li>
+  </ol></td>`
+}
+for (let i = 1; i <= 18; i++) {
+    document.getElementById('player2').innerHTML += `<td><ol class="number-swiper-column" value="0">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+    <li>19</li>
+    <li>20</li>
+  </ol></td>`
+}
+for (let i = 1; i <= 18; i++) {
+    document.getElementById('player3').innerHTML += `<td><ol class="number-swiper-column" value="0">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+    <li>19</li>
+    <li>20</li>
+  </ol></td>`
+}
+for (let i = 1; i <= 18; i++) {
+    document.getElementById('player4').innerHTML += `<td><ol class="number-swiper-column" value="0">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+    <li>19</li>
+    <li>20</li>
+  </ol></td>`
+}
 }
 
 

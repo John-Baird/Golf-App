@@ -1,4 +1,9 @@
+let player1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+let player2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+let player3 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+let player4 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
+let r = 1
 let once = false
 let duo = 0
 let id = ''
@@ -133,48 +138,139 @@ function Table(){
     //Holes
 for (let i = 1; i <= 18; i++) {
     document.getElementById('holes').innerHTML += `<td>${i}</td>`
+    if(i==9){
+        document.getElementById('holes').innerHTML += `<th></th>`
+    }
 }
-document.getElementById('holes').innerHTML += `<th scope="row">Out</th>`
+document.getElementById('holes').innerHTML += `<th scope="row">Total</th>`
 
     //Yards
 for (let i = 0; i < 18; i++) {
     document.getElementById('yards').innerHTML += `<td>${yards[i]}</td>`
+    if(i==8){
+        document.getElementById('yards').innerHTML += `<th></th>`
+    }
 }
 document.getElementById('yards').innerHTML += `<th scope="row">${addArray(yards)}</th>`
 
     //Par
 for (let i = 0; i < 18; i++) {
     document.getElementById('par').innerHTML += `<td>${par[i]}</td>`
+    if(i==8){
+        document.getElementById('par').innerHTML += `<th></th>`
+    }
 }
 document.getElementById('par').innerHTML += `<th scope="row">${addArray(par)}</th>`
 
     //Handicap
 for (let i = 0; i < 18; i++) {
     document.getElementById('hcp').innerHTML += `<td>${hcp[i]}</td>`
+    if(i==8){
+        document.getElementById('hcp').innerHTML += `<th ></th>`
+    }
 }
 document.getElementById('hcp').innerHTML += `<th scope="row">${addArray(hcp)}</th>`
 
+
+
+
+
+
     //Players
 for (let i = 1; i <= 18; i++) {
-    document.getElementById('player1').innerHTML += `<td></td>`
+    document.getElementById('player1').innerHTML += `<td class='change' value="${i}">${player1[(i-1)]}</td>`
+    if(i==9){
+        document.getElementById('player1').innerHTML += `<th id='array11'></th>`
+    }
 }
+document.getElementById('player1').innerHTML += `<th id='array1' scope="row">${addArray(player1)}</th>`
+
 for (let i = 1; i <= 18; i++) {
-    document.getElementById('player2').innerHTML += `<td></td>`
+    document.getElementById('player2').innerHTML += `<td class='change' value="${i}">${player2[(i-1)]}</td>`
+    if(i==9){
+        document.getElementById('player2').innerHTML += `<th id='array22'></th>`
+    }
 }
+document.getElementById('player2').innerHTML += `<th id='array2' scope="row">${addArray(player2)}</th>`
+
 for (let i = 1; i <= 18; i++) {
-    document.getElementById('player3').innerHTML += `<td></td>`
+    document.getElementById('player3').innerHTML += `<td class='change' value="${i}">${player3[(i-1)]}</td>`
+    if(i==9){
+        document.getElementById('player3').innerHTML += `<th id='array33'></th>`
+    }
 }
+document.getElementById('player3').innerHTML += `<th id='array3' scope="row">${addArray(player3)}</th>`
+
 for (let i = 1; i <= 18; i++) {
-    document.getElementById('player4').innerHTML += `<td></td>`
+    document.getElementById('player4').innerHTML += `<td class='change' value="${i}">${player4[(i-1)]}</td>`
+    if(i==9){
+        document.getElementById('player4').innerHTML += `<th id='array44'></th>`
+    }
 }
+document.getElementById('player4').innerHTML += `<th id='array4' scope="row">${addArray(player4 )}</th>`
+
+document.querySelectorAll('td.change').forEach((td) => {
+    td.onclick = (e) => {
+      console.log(e.target.innerText);
+      
+      if(parseInt(e.target.innerText)+1*r < 0){
+
+      }
+      else{
+        e.target.innerText = parseInt(e.target.innerText)+1*r
+        setArray()
+      }
+    };
+  });
 }
 
+function setArray(){
+
+    for (let i = 0; i < 19; i++) {
+        if(i==9){
+            i=10
+        }
+        player1[i] = parseInt(document.getElementById('player1').children[(i+1)].innerText)
+        player2[i] = parseInt(document.getElementById('player2').children[(i+1)].innerText)
+        player3[i] = parseInt(document.getElementById('player3').children[(i+1)].innerText)
+        player4[i] = parseInt(document.getElementById('player4').children[(i+1)].innerText)
+    }
+    document.getElementById('array1').innerText = addArray(player1)
+    document.getElementById('array2').innerText = addArray(player2)
+    document.getElementById('array3').innerText = addArray(player3)
+    document.getElementById('array4').innerText = addArray(player4)
+    let a1 = []
+    let b2 = []
+    let c3 = []
+    let d4 = []
+    
+    for (let i = 0; i < 9; i++){
+        a1.push(player1[i])
+        b2.push(player2[i])
+        c3.push(player3[i])
+        d4.push(player4[i])
+    }
+    document.getElementById('array11').innerText = addArray(a1)
+    document.getElementById('array22').innerText = addArray(b2)
+    document.getElementById('array33').innerText = addArray(c3)
+    document.getElementById('array44').innerText = addArray(d4)
 
 
+}
 
+document.getElementById('sign').addEventListener('click', function () {
+    let wait = 0
+    if (this.innerText == "+"){
+        this.innerText = "-"
+        wait = 1
+        r = -1
+    }
+    if (this.innerText == "-" && wait==0){
+        this.innerText = "+"
+        r = 1
+    }
 
-
-
+})
 
 function addArray(array){
     const sum = array.reduce((accumulator, value) => {

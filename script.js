@@ -1,6 +1,6 @@
 let overlay = true;
-
-
+let show = [false,false,false,false]
+let showCounter = 0
 let player1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 let player2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 let player3 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -106,17 +106,6 @@ const getGolfCourse = () => {
 }
 
 
-document.getElementById('course-select').addEventListener('change', function () {
-    once = false
-    getGolfCourse()
-
-})
-
-document.getElementById('tee-box').addEventListener('change', function () {
-    once = true
-    getGolfCourse()
-
-})
 
 
 
@@ -139,40 +128,40 @@ function Table(){
     document.getElementById('player4').innerHTML = ` <th scope="row">Player 4</th>`
 
     //Holes
-for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 18; i++) {
     document.getElementById('holes').innerHTML += `<td>${i}</td>`
     if(i==9){
         document.getElementById('holes').innerHTML += `<th></th>`
     }
-}
-document.getElementById('holes').innerHTML += `<th scope="row">Total</th>`
+    }
+    document.getElementById('holes').innerHTML += `<th scope="row">Total</th>`
 
     //Yards
-for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 18; i++) {
     document.getElementById('yards').innerHTML += `<td>${yards[i]}</td>`
     if(i==8){
         document.getElementById('yards').innerHTML += `<th></th>`
     }
-}
-document.getElementById('yards').innerHTML += `<th scope="row">${addArray(yards)}</th>`
+    }
+    document.getElementById('yards').innerHTML += `<th scope="row">${addArray(yards)}</th>`
 
     //Par
-for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 18; i++) {
     document.getElementById('par').innerHTML += `<td>${par[i]}</td>`
     if(i==8){
         document.getElementById('par').innerHTML += `<th></th>`
     }
-}
-document.getElementById('par').innerHTML += `<th scope="row">${addArray(par)}</th>`
+    }
+    document.getElementById('par').innerHTML += `<th scope="row">${addArray(par)}</th>`
 
     //Handicap
-for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 18; i++) {
     document.getElementById('hcp').innerHTML += `<td>${hcp[i]}</td>`
     if(i==8){
         document.getElementById('hcp').innerHTML += `<th ></th>`
     }
-}
-document.getElementById('hcp').innerHTML += `<th scope="row">${addArray(hcp)}</th>`
+    }
+    document.getElementById('hcp').innerHTML += `<th scope="row">${addArray(hcp)}</th>`
 
 
 
@@ -180,39 +169,39 @@ document.getElementById('hcp').innerHTML += `<th scope="row">${addArray(hcp)}</t
 
 
     //Players
-for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 18; i++) {
     document.getElementById('player1').innerHTML += `<td class='change' value="${i}">${player1[(i-1)]}</td>`
     if(i==9){
         document.getElementById('player1').innerHTML += `<th id='array11'>0</th>`
     }
-}
-document.getElementById('player1').innerHTML += `<th id='array1' scope="row">${addArray(player1)}</th>`
+    }
+    document.getElementById('player1').innerHTML += `<th id='array1' scope="row">${addArray(player1)}</th>`
 
-for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 18; i++) {
     document.getElementById('player2').innerHTML += `<td class='change' value="${i}">${player2[(i-1)]}</td>`
     if(i==9){
         document.getElementById('player2').innerHTML += `<th id='array22'>0</th>`
     }
-}
-document.getElementById('player2').innerHTML += `<th id='array2' scope="row">${addArray(player2)}</th>`
+    }
+    document.getElementById('player2').innerHTML += `<th id='array2' scope="row">${addArray(player2)}</th>`
 
-for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 18; i++) {
     document.getElementById('player3').innerHTML += `<td class='change' value="${i}">${player3[(i-1)]}</td>`
     if(i==9){
         document.getElementById('player3').innerHTML += `<th id='array33'>0</th>`
     }
-}
-document.getElementById('player3').innerHTML += `<th id='array3' scope="row">${addArray(player3)}</th>`
+    }
+    document.getElementById('player3').innerHTML += `<th id='array3' scope="row">${addArray(player3)}</th>`
 
-for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 18; i++) {
     document.getElementById('player4').innerHTML += `<td class='change' value="${i}">${player4[(i-1)]}</td>`
     if(i==9){
         document.getElementById('player4').innerHTML += `<th id='array44'>0</th>`
     }
-}
-document.getElementById('player4').innerHTML += `<th id='array4' scope="row">${addArray(player4 )}</th>`
+    }
+    document.getElementById('player4').innerHTML += `<th id='array4' scope="row">${addArray(player4 )}</th>`
 
-document.querySelectorAll('td.change').forEach((td) => {
+    document.querySelectorAll('td.change').forEach((td) => {
     td.onclick = (e) => {
       console.log(e.target.innerText);
       
@@ -225,7 +214,17 @@ document.querySelectorAll('td.change').forEach((td) => {
       }
     };
   });
+  for(let i = 1; i<5; i++){
+    
+    if(show[i-1]==false){
+    document.getElementById(`player${i}`).classList.add('gone')
+    }
+    else{
+        document.getElementById(`player${i}`).classList.remove('gone')
+    }
+  }
   
+  load()
 }
 
 function setArray(){
@@ -273,6 +272,37 @@ document.getElementById('sign').addEventListener('click', function () {
         this.innerText = "+"
         r = 1
     }
+
+})
+
+document.getElementById('add').addEventListener('click', function () {
+    if (showCounter < 4){
+    showCounter++
+    for(let i=0; i<showCounter;i++){
+        show.splice(i,1,true)
+    }
+    Table()
+}
+})
+document.getElementById('remove').addEventListener('click', function () {
+    if (showCounter > 0){
+    console.log("remove")
+    show.splice(showCounter-1,1,false)
+    showCounter--
+        
+    Table()
+}
+})
+
+document.getElementById('course-select').addEventListener('change', function () {
+    once = false
+    getGolfCourse()
+
+})
+
+document.getElementById('tee-box').addEventListener('change', function () {
+    once = true
+    getGolfCourse()
 
 })
 

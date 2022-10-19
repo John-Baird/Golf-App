@@ -51,4 +51,8 @@ td {
   align-items: center;
   font-size: 40px; }
 
+.gone {
+  display: none !important;
+  visibility: hidden !important; }
+
 /*# sourceMappingURL=styles.css.map */

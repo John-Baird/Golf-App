@@ -1,3 +1,6 @@
+let check = 0;
+let checkone = 0;
+let checktwo = 0;
 let overlay = true;
 let show = [false,false,false,false]
 let showCounter = 0
@@ -122,10 +125,10 @@ function Table(){
     document.getElementById('yards').innerHTML = `<th scope="row">Yards</th>`
     document.getElementById('par').innerHTML = `<th scope="row">Par</th>`
     document.getElementById('hcp').innerHTML = `<th scope="row">Handicap</th>`
-    document.getElementById('player1').innerHTML = ` <th scope="row">Player 1</th>`
-    document.getElementById('player2').innerHTML = ` <th scope="row">Player 2</th>`
-    document.getElementById('player3').innerHTML = ` <th scope="row">Player 3</th>`
-    document.getElementById('player4').innerHTML = ` <th scope="row">Player 4</th>`
+    document.getElementById('player1').innerHTML = ` <input placeholder='Player1' scope="row"></input>`
+    document.getElementById('player2').innerHTML = ` <input placeholder='Player2' scope="row"></input>`
+    document.getElementById('player3').innerHTML = ` <input placeholder='Player3' scope="row"></input>`
+    document.getElementById('player4').innerHTML = ` <input placeholder='Player4' scope="row"></input>`
 
     //Holes
     for (let i = 1; i <= 18; i++) {
@@ -211,6 +214,56 @@ function Table(){
       else{
         e.target.innerText = parseInt(e.target.innerText)+1*r
         setArray()
+        for(let i=0;i<19;i++){
+
+            let playerCount = 0
+            for(let i=0; i<show.length;i++){
+                if(show[i] == true){
+                    playerCount++
+                }
+            }
+            
+            if(i==9){
+                i++
+            }
+            
+            if(player1[i] !== 0 && show[0] == true){
+                check = 1
+            }
+            else if(show[0] == true){
+                check = 0
+            }
+            if(player2[i] !== 0 && show[1] == true){
+                check = 1
+            }
+            else if(show[1] == true){
+                check = 0
+            }
+            if(player3[i] !== 0 && show[2] == true){
+                check = 1
+            }
+            else if(show[2] == true){
+                check = 0
+            }
+            if(player4[i] !== 0 && show[3] == true){
+                check = 1
+            }
+            else if(show[3] == true){
+                check = 0
+            }
+            
+            if(i==8 & check == 1 && checkone == 0){
+                toastr.success("Nice! You've Completed the 9th Hole")
+                checkone = 1
+            } 
+            if(i==18 & check == 1 && checktwo == 0){
+                toastr.success("Nice! You've Completed the 18th Hole")
+                checktwo = 1
+            }
+        }
+
+
+        
       }
     };
   });
@@ -272,6 +325,8 @@ document.getElementById('sign').addEventListener('click', function () {
         this.innerText = "+"
         r = 1
     }
+    
+
 
 })
 
@@ -303,6 +358,7 @@ document.getElementById('course-select').addEventListener('change', function () 
 document.getElementById('tee-box').addEventListener('change', function () {
     once = true
     getGolfCourse()
+    
 
 })
 

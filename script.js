@@ -1,3 +1,7 @@
+let p1 = ''
+let p2 = ''
+let p3 = ''
+let p4 = ''
 let check = 0;
 let checkone = 0;
 let checktwo = 0;
@@ -115,6 +119,11 @@ const getGolfCourse = () => {
 //Flow
 
 function Table(){
+    
+    
+    
+    
+
     let f = document.getElementById('content')
     f.classList = ''
     if (boxName == "auto change location"){
@@ -125,10 +134,11 @@ function Table(){
     document.getElementById('yards').innerHTML = `<th scope="row">Yards</th>`
     document.getElementById('par').innerHTML = `<th scope="row">Par</th>`
     document.getElementById('hcp').innerHTML = `<th scope="row">Handicap</th>`
-    document.getElementById('player1').innerHTML = ` <input placeholder='Player1' scope="row"></input>`
-    document.getElementById('player2').innerHTML = ` <input placeholder='Player2' scope="row"></input>`
-    document.getElementById('player3').innerHTML = ` <input placeholder='Player3' scope="row"></input>`
-    document.getElementById('player4').innerHTML = ` <input placeholder='Player4' scope="row"></input>`
+    document.getElementById('player1').innerHTML = ` <input placeholder='Player1' value='${p1}' id='p1' scope="row"></input>`
+    document.getElementById('player2').innerHTML = ` <input placeholder='Player2' value='${p2}' id='p2' scope="row"></input>`
+    document.getElementById('player3').innerHTML = ` <input placeholder='Player3' value='${p3}' id='p3' scope="row"></input>`
+    document.getElementById('player4').innerHTML = ` <input placeholder='Player4' value='${p4}' id='p4' scope="row"></input>`
+    
 
     //Holes
     for (let i = 1; i <= 18; i++) {
@@ -362,6 +372,9 @@ document.getElementById('tee-box').addEventListener('change', function () {
 
 })
 
+
+
+//ES6
 function addArray(array){
     const sum = array.reduce((accumulator, value) => {
         return accumulator + value;
@@ -376,4 +389,27 @@ overlay = false;
 function load(){
 document.getElementById('bruh').classList = ''
 document.getElementById('bruh').innerHTML = ''
+
+document.getElementById('p1').addEventListener('change', function () {
+    p1 = document.getElementById('p1').value
+    
+
+})
+document.getElementById('p2').addEventListener('change', function () {
+    p2 = document.getElementById('p2').value
+    
+
+})
+document.getElementById('p3').addEventListener('change', function () {
+    p3 = document.getElementById('p3').value
+    
+
+})
+document.getElementById('p4').addEventListener('change', function () {
+    p4 = document.getElementById('p4').value
+    
+
+})
 }
+
+
